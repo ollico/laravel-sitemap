@@ -27,12 +27,12 @@ class SitemapTest extends TestCase
     {
         parent::setUp();
 
-        app('config')->set('ollico.sitemap.enabled', true);
+        app('config')->set('sitemap.enabled', true);
         app('config')->set('app.url', 'https://ollico.dev');
 
-        $this->dateOne = now()->subDay();
+        $this->dateOne = now()->subDay()->timezone('Europe/London');
         $this->dateTwo = '2021-01-01T10:10:10';
-        $this->dateThree = now()->subDays(3);
+        $this->dateThree = now()->subDays(3)->timezone('Europe/London');
 
         Sitemap::register(function (SitemapManager $manager) {
             $manager->addPath('/foo/bar', $this->dateOne);
