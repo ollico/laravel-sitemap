@@ -31,7 +31,7 @@ class SitemapTest extends TestCase
         app('config')->set('app.url', 'https://ollico.dev');
 
         $this->dateOne = now()->subDay()->timezone('Europe/London');
-        $this->dateTwo = '2021-01-01T10:10:10';
+        $this->dateTwo = '2021-01-01T10:10:10+00:00';
         $this->dateThree = now()->subDays(3)->timezone('Europe/London');
 
         Sitemap::register(function (SitemapManager $manager) {

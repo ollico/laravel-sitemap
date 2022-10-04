@@ -12,7 +12,7 @@ class SitemapManager
 {
     protected $items = [];
 
-    protected $format = 'Y-m-d\TH:i:s';
+    public static $timeFormat = 'Y-m-d\TH:i:sP';
 
     protected static ?Closure $registerCallback = null;
 
@@ -22,7 +22,9 @@ class SitemapManager
     {
         $this->items[] = [
             'url' => url($path, [], true),
-            'lastmod' => $lastmod instanceof Carbon ? $lastmod->format($this->format) : $lastmod,
+            'lastmod' => $lastmod instanceof Carbon
+                ? $lastmod->format(static::$timeFormat)
+                : $lastmod,
         ];
 
         return $this;
