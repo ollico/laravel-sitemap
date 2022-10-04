@@ -17,14 +17,14 @@ class ServiceProvider extends PackageServiceProvider
             ->hasViews()
             ->publishesServiceProvider('SitemapServiceProvider')
             ->hasCommand(CacheSitemapCommand::class)
-            ->hasInstallCommand(function(InstallCommand $command) {
+            ->hasInstallCommand(function (InstallCommand $command) {
                 $command
-                    ->startWith(function(InstallCommand $command) {
+                    ->startWith(function (InstallCommand $command) {
                         $command->info('Installing ollico/laravel-sitemap');
                     })
                     ->publishConfigFile()
                     ->copyAndRegisterServiceProviderInApp()
-                    ->endWith(function(InstallCommand $command) {
+                    ->endWith(function (InstallCommand $command) {
                         $command->info('Completed installation of ollico/laravel-sitemap');
                     });
             });

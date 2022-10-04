@@ -11,7 +11,9 @@ use Orchestra\Testbench\TestCase;
 class SitemapTest extends TestCase
 {
     protected Carbon $dateOne;
+
     protected string $dateTwo;
+
     protected Carbon $dateThree;
 
     protected function getPackageProviders($app)
@@ -40,7 +42,7 @@ class SitemapTest extends TestCase
     }
 
     /** @test */
-    function it_can_generate_a_sitemap()
+    public function it_can_generate_a_sitemap()
     {
         $this->artisan('sitemap:generate')->assertSuccessful();
 
