@@ -1,6 +1,6 @@
 /vendor
 /node_modules
-build
+/build
 composer.phar
 composer.lock
 docs
