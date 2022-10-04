@@ -16,6 +16,8 @@ class SitemapManager
 
     protected static ?Closure $registerCallback = null;
 
+    protected ?string $pathToSitemap = null;
+
     public function addPath($path, $lastmod = null): SitemapManager
     {
         $this->items[] = [
@@ -24,6 +26,18 @@ class SitemapManager
         ];
 
         return $this;
+    }
+
+    public function path(string $path): SitemapManager
+    {
+        $this->pathToSitemap = $path;
+
+        return $this;
+    }
+
+    public function storagePath(): string
+    {
+        return $this->pathToSitemap ?: public_path('sitemap.xml');
     }
 
     public function register(Closure $callback): void

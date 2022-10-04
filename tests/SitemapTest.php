@@ -57,4 +57,12 @@ class SitemapTest extends TestCase
         $this->assertStringContainsString('https://ollico.dev/bar/second', $content);
         $this->assertStringContainsString($this->dateThree->format('Y-m-d\TH:i:s'), $content);
     }
+
+    /** @test */
+    public function it_can_have_a_custom_storage_path()
+    {
+        Sitemap::path('/custom/path');
+
+        $this->assertEquals('/custom/path', resolve(SitemapManager::class)->storagePath());
+    }
 }

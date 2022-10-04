@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Ollico\Sitemap\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\File;
 use Ollico\Sitemap\SitemapManager;
 
 class CacheSitemapCommand extends Command
@@ -16,7 +17,7 @@ class CacheSitemapCommand extends Command
     public function handle(SitemapManager $sitemap)
     {
         if (config('ollico.sitemap.enabled')) {
-            file_put_contents(public_path('sitemap.xml'), $sitemap->toXml());
+            File::put($sitemap->storagePath(), $sitemap->toXml());
         }
     }
 }

@@ -9,6 +9,13 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class ServiceProvider extends PackageServiceProvider
 {
+    public function packageRegistered(): void
+    {
+        $this->app->singleton(SitemapManager::class, function () {
+            return new SitemapManager();
+        });
+    }
+
     public function configurePackage(Package $package): void
     {
         $package
