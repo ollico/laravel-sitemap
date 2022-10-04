@@ -16,7 +16,7 @@ class CacheSitemapCommand extends Command
 
     public function handle(SitemapManager $sitemap)
     {
-        if (config('ollico.sitemap.enabled')) {
+        if (config('sitemap.enabled')) {
             File::put($sitemap->storagePath(), $sitemap->toXml());
         }
     }
