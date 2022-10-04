@@ -1,0 +1,63 @@
+{
+  "name": "ollico/laravel-sitemap",
+  "description": "A quick sitemap helper for Laravel.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "David Bonner",
+      "email": "david@ollicosoftware.com"
+    },
+    {
+      "name": "Keiron McGivern",
+      "email": "keironmcgivern@ollicosoftware.com"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "spatie/laravel-package-tools": "^1.13.0",
+    "illuminate/contracts": "^9.0"
+  },
+  "require-dev": {
+    "laravel/pint": "^1.0",
+    "nunomaduro/collision": "^6.0",
+    "nunomaduro/larastan": "^2.0.1",
+    "orchestra/testbench": "^7.0",
+    "phpstan/extension-installer": "^1.1",
+    "phpstan/phpstan-deprecation-rules": "^1.0",
+    "phpstan/phpstan-phpunit": "^1.0",
+    "phpunit/phpunit": "^9.5"
+  },
+  "scripts": {
+    "analyse": "vendor/bin/phpstan analyse",
+    "format": "vendor/bin/pint"
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "phpstan/extension-installer": true
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Ollico\\Sitemap\\ServiceProvider"
+      ],
+      "aliases": {
+        "Sitemap": "Ollico\\Sitemap\\Facades\\Sitemap"
+      }
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Ollico\\Sitemap\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Ollico\\Sitemap\\Tests\\": "tests"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

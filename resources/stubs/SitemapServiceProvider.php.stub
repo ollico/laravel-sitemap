@@ -1,0 +1,24 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Ollico\Sitemap\Facades\Sitemap;
+use Ollico\Sitemap\SitemapManager;
+
+class SitemapServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        Sitemap::register(function (SitemapManager $manager) {
+            $this->registerPaths($manager);
+        });
+    }
+
+    protected function registerPaths(SitemapManager $manager): void
+    {
+        // $manager->addPath(...);
+    }
+}
