@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites>
-  <testsuite name="Ollico\Sitemap\Tests\SitemapTest" file="/Users/davidbonner/Code/Ollico/laravel-sitemap/tests/SitemapTest.php" tests="1" assertions="8" errors="0" warnings="0" failures="0" skipped="0" time="0.160044">
-    <testcase name="it_can_generate_a_sitemap" class="Ollico\Sitemap\Tests\SitemapTest" classname="Ollico.Sitemap.Tests.SitemapTest" file="/Users/davidbonner/Code/Ollico/laravel-sitemap/tests/SitemapTest.php" line="43" assertions="8" time="0.160044"/>
-  </testsuite>
-</testsuites>
