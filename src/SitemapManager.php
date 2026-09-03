@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Ollico\Sitemap;
 
-use Carbon\Carbon;
+use Carbon\CarbonInterface;
 use Closure;
 use Illuminate\Support\Facades\URL;
 
@@ -22,7 +22,7 @@ class SitemapManager
     {
         $this->items[] = [
             'url' => url($path, [], true),
-            'lastmod' => $lastmod instanceof Carbon
+            'lastmod' => $lastmod instanceof CarbonInterface
                 ? $lastmod->format(static::$timeFormat)
                 : $lastmod,
         ];
@@ -49,6 +49,8 @@ class SitemapManager
 
     public function toArray(): array
     {
+        $this->items = [];
+
         URL::forceRootUrl(config('app.url'));
 
         if (static::$registerCallback) {
